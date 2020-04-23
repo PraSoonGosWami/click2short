@@ -1,0 +1,14 @@
+.Logo{
+    max-height: 50px;
+    object-fit: cover;
+    margin-top: 2px;
+    animation: fade-in 0.7s ease-in-out;
+    animation-delay: 0.1s;
+    animation-fill-mode: backwards;
+}
+
+
+@keyframes fade-in {
+    0% {opacity:0 ; }
+    100% {opacity:1 ;}
+}

@@ -1,0 +1,25 @@
+.NavigationItem{
+    margin-right: 12px;
+    padding: 4px 10px;
+    font-weight: bold;
+}
+
+.NavigationItem > a{
+    text-decoration: none;
+    color: #636262;
+    transition: all 0.3s ease;
+}
+
+.NavigationItem > a:active,
+.NavigationItem > a.active{
+    color: rgba(33, 150, 243, 1);
+    font-size: 17px;
+}
+
+@media (hover: hover) {
+    .NavigationItem > a:hover{
+        color: rgba(33, 150, 243, 1);
+        font-size: 17px;
+
+    }
+}
