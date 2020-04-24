@@ -1,0 +1,155 @@
+.HomePage{
+
+}
+.HomePageDiv{
+    height: 450px;
+    background-color: rgba(200,200,200,0.5);
+    font-family: "Segoe UI";
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.HomePageDiv > h1{
+    display: inline-block;
+    font-size: 50px;
+    letter-spacing: 1px;
+    color: black;
+    animation: float-top 0.7s ease-in-out;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+
+.HomePageDiv > h2 {
+    display: inline-block;
+    font-weight: normal;
+    margin-top: 12px;
+    color: #5c5b5b;
+    margin-bottom: 15px;
+    animation: float-top 0.7s ease-in-out;
+    animation-delay: 1.3s;
+    animation-fill-mode: backwards;
+}
+
+.HomePageDiv > button {
+    display: inline-block;
+    margin-top: 20px;
+    animation: fade-in 0.7s ease-in-out;
+    animation-delay: 1.7s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes float-top {
+    0% {opacity:0 ; transform: translateY(10px)}
+    100% {opacity:1 ;transform: translateY(0)}
+}
+
+@keyframes fade-in {
+    0% {opacity:0 ; }
+    100% {opacity:1 ;}
+}
+
+.HomePage > section{
+    background-color: rgba(25, 118, 210,1);
+    padding: 30px;
+    text-align: center;
+    animation: fade-in 0.7s ease-in-out;
+    animation-delay: 2.1s;
+    animation-fill-mode: backwards;
+
+}
+.HomePage > section > form{
+    display: inline;
+    text-align: center;
+}
+
+.HomePage > section >form > input{
+    margin-top: 16px;
+    margin-bottom: 16px;
+    margin-right: 12px;
+    padding: 12px;
+    width: 60%;
+    border-radius: 4px;
+    border: 0;
+    font-size: 18px;
+    font-weight: bolder;
+}
+.HomePage > section >form > button{
+    font-size: 16px;
+    font-weight: bolder;
+    padding: 9px 40px;
+    margin-bottom: 4px;
+}
+
+@media (max-width:930px){
+    .HomePageDiv > h1{
+        font-size: 46px;
+    }
+}
+@media (max-width:560px){
+    .HomePage > section > form {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 90%;
+    }
+    .HomePage > section > form > input{
+        margin: 16px 0;
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 16px;
+    }
+
+    .HomePage > section > form > button{
+        margin: 0;
+        width: 100%;
+        font-size: 15px;
+        font-weight: bolder;
+
+    }
+    
+}
+@media (max-width:450px){
+    .HomePageDiv {
+        text-align: left;
+        height: 400px;
+    }
+    .HomePageDiv > h1{
+        font-size: 40px;
+    }
+    .HomePageDiv > h2{
+        font-size: 20px;
+        letter-spacing: 0px;
+
+    }
+}
+
+
+@media (max-width:350px){
+
+    .HomePageDiv > h1{
+        font-size: 36px;
+        
+    }
+    .HomePageDiv > h2{
+        font-size: 16px;
+        letter-spacing: 0px;
+
+    }
+
+    .HomePage > section > form {
+        width: 100%;
+    }
+    .HomePage > section > form > input{
+        font-size: 14px;
+    }
+
+    .HomePage > section > form > button{
+        
+        font-size: 14px;
+
+    }
+}

@@ -1,21 +1,22 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
+import React, {useContext, useState} from 'react';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
-import muiTheme from './components/UI/MaterialTheme/mui.json'
-import Navigation from "./components/Navigation/Navigation";
-import MainComponent from "./components/MainComponent/MainComponent";
-import {Router} from "react-router";
+import  muiTheme from './UI/MaterialTheme/mui.json'
+import {AppContext} from "./Context/AppContext";
+import Navigation from "./Containers/NonAuthUser/Components/Navigation/Navigation";
+import MainComponent from "./Containers/NonAuthUser/Components/MainComponent/MainComponent";
+import NoAuthUser from "./Containers/NonAuthUser/NoAuthUser";
 
 const theme = createMuiTheme(muiTheme)
 
 function App() {
+    const contextValue = useContext(AppContext)
+    const [isLoggedIn] = useState(contextValue.isLoggedIn)
+
     return (
         <ThemeProvider theme={theme}>
-            <div>
-                <Navigation/>
-                <MainComponent/>
-            </div>
+            { isLoggedIn ?<div><h2>Auth user</h2></div>
+                :<NoAuthUser/>}
         </ThemeProvider>
 
     );
