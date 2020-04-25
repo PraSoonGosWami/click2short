@@ -11,11 +11,10 @@ const DialogModal = (props) => {
     return(
         <Dialog
             fullScreen={fullScreen}
-            open={props.show}
-            onClose={props.handler}
-            aria-labelledby="responsive-dialog-title"
+            open={props.open}
+            onClose={props.onClose}
         >
-            <DialogContent>{props.content}</DialogContent>
+            <DialogContent>{props.children}</DialogContent>
         </Dialog>
     )
 }

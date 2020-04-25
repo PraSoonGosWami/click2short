@@ -1,0 +1,41 @@
+.CardLayout{
+    width: 300px;
+    height: 400px;
+    margin: 10px 0;
+    transition: all 0.4s ease;
+}
+
+.CardContent{
+    width: 100%;
+    text-align: left;
+    font-family: "Segoe UI";
+}
+.CardContent > img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.CardContent> section{
+    padding: 16px;
+}
+.CardContent > section > h2{
+    margin-bottom: 12px;
+    font-size: 19px;
+    letter-spacing: 1px;
+}
+
+.CardContent > section > p{
+    margin-bottom: 8px;
+    color: #454545;
+    font-size: 14px;
+    letter-spacing: 1px;
+
+}
+
+@media (hover: hover) {
+    .CardLayout:hover{
+        transform: translateY(-30px);
+        transform: scale(1.1,1.1);
+    }
+}

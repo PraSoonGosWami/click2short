@@ -1,0 +1,55 @@
+.AppFooter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 16px;
+}
+
+.AppFooter > aside{
+    padding: 8px;
+    text-align: center;
+}
+
+.AppFooter > aside > img{
+    max-width: 250px;
+}
+
+.AppFooter > main{
+    text-align: center;
+    margin: 16px 4px;
+}
+
+.AppFooter > main > h2{
+    margin: 8px;
+}
+
+.AppFooter > main > p{
+    margin: 8px;
+}
+
+.Author{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 16px 0;
+}
+
+.Author > img{
+    max-width: 60px;
+    border-radius: 30px;
+    margin: 8px;
+}
+.Author > h3{
+    color: #282727;
+    display: block;
+
+}
+.Author > h3 > a{
+    text-decoration: none;
+    color: #3b3a3a;
+}
+
+.Author > h3 > a:hover{
+    text-decoration: underline;
+}

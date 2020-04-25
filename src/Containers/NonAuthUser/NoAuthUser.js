@@ -1,16 +1,26 @@
 import React, {useState} from 'react'
 import Navigation from "./Components/Navigation/Navigation";
 import MainComponent from "./Components/MainComponent/MainComponent";
+import Login from "./Components/Auth/Login/Login";
 
 const NoAuthUser = (props) => {
-    const [show,setShow] = useState(false)
-    const loginHandler = () => {
-        setShow(prevState => !prevState)
+
+    const [login,setLogin] = useState(false)
+    const [signup, setSignup] = useState(false)
+
+    const loginDialog = () => {
+        setLogin(true)
     }
+
+    const signupHandler =() => {
+        setSignup(true)
+    }
+
     return(
         <div>
-            <Navigation loginHandler={()=>loginHandler()}/>
-            <MainComponent/>
+            <Navigation login={()=>loginDialog()} signup={()=>signupHandler()}/>
+            <MainComponent login={()=>loginDialog()}/>
+            <Login open={login} onClose={()=>setLogin(false)}/>
         </div>
     )
 }

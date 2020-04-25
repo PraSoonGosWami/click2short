@@ -1,10 +1,10 @@
 .HomePage{
+    font-family: "Segoe UI";
 
 }
 .HomePageDiv{
-    height: 450px;
+    height: 500px;
     background-color: rgba(200,200,200,0.5);
-    font-family: "Segoe UI";
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -18,8 +18,8 @@
     font-size: 50px;
     letter-spacing: 1px;
     color: black;
-    animation: float-top 0.7s ease-in-out;
-    animation-delay: 1s;
+    animation: float-top 0.5s ease-in-out;
+    animation-delay: 0.7s;
     animation-fill-mode: backwards;
 }
 
@@ -27,18 +27,18 @@
     display: inline-block;
     font-weight: normal;
     margin-top: 12px;
-    color: #5c5b5b;
+    color: #323232;
     margin-bottom: 15px;
-    animation: float-top 0.7s ease-in-out;
-    animation-delay: 1.3s;
+    animation: float-top 0.5s ease-in-out;
+    animation-delay: 1s;
     animation-fill-mode: backwards;
 }
 
 .HomePageDiv > button {
     display: inline-block;
     margin-top: 20px;
-    animation: fade-in 0.7s ease-in-out;
-    animation-delay: 1.7s;
+    animation: fade-in 0.5s ease-in-out;
+    animation-delay: 1.2s;
     animation-fill-mode: backwards;
 }
 
@@ -53,14 +53,15 @@
 }
 
 .HomePage > section{
-    background-color: rgba(25, 118, 210,1);
+    background: linear-gradient(to right, rgb(25, 136, 224), rgb(14, 110, 201));
     padding: 30px;
     text-align: center;
-    animation: fade-in 0.7s ease-in-out;
-    animation-delay: 2.1s;
+    animation: fade-in 0.5s ease-in-out;
+    animation-delay: 1.5s;
     animation-fill-mode: backwards;
 
 }
+
 .HomePage > section > form{
     display: inline;
     text-align: center;
@@ -70,7 +71,7 @@
     margin-top: 16px;
     margin-bottom: 16px;
     margin-right: 12px;
-    padding: 12px;
+    padding: 16px;
     width: 60%;
     border-radius: 4px;
     border: 0;
@@ -80,8 +81,44 @@
 .HomePage > section >form > button{
     font-size: 16px;
     font-weight: bolder;
-    padding: 9px 40px;
+    padding: 13px 40px;
     margin-bottom: 4px;
+}
+
+.HomePage > section > p{
+    color: #282727;
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+.HomePage > main {
+    text-align: center;
+    padding: 30px;
+    background-color: whitesmoke;
+    animation: fade-in 0.5s ease-in-out;
+    animation-delay: 1.8s;
+    animation-fill-mode: backwards;
+
+}
+
+.HomePage > main > h1 {
+   color: #383636;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    letter-spacing: 1px;
+
+}
+
+.HomePageBenefits {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
 
 @media (max-width:930px){
@@ -90,6 +127,14 @@
     }
 }
 @media (max-width:560px){
+    .HomePage > section > p{
+        font-size: 12px;
+        font-weight: normal;
+        margin-top: 20px;
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+
     .HomePage > section > form {
         display: inline-block;
         box-sizing: border-box;
@@ -125,6 +170,10 @@
         letter-spacing: 0px;
 
     }
+    .HomePageBenefits{
+        padding: 8px 0;
+    }
+
 }
 
 
@@ -151,5 +200,9 @@
         
         font-size: 14px;
 
+    }
+
+    .HomePage > main > h1 {
+        font-size: 24px;
     }
 }

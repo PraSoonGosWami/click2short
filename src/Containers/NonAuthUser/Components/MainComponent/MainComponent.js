@@ -9,11 +9,11 @@ const MainComponent = (props) => {
         <div className={Style.MainComponent}>
             <Suspense fallback={<h2>Loading...</h2>} >
                 <Switch>
-                    <Route path={'/'} exact component={HomePage}/>
+                    <Route path={'/'} exact component={()=><HomePage login={props.login}/>}/>
                 </Switch>
             </Suspense>
         </div>
     )
 }
 
-export default MainComponent
+export default React.memo(MainComponent,(prevState, nextState) => prevState !== nextState)

@@ -9,8 +9,10 @@ const Navigation = (props) => {
         <div className={Style.Navigation}>
             <Logo/>
             <div className={Style.NavigationItems}>
-                <Button variant="contained" color="primary" size="medium" onClick={props.loginHandler}>Log in</Button>
-                <Button variant="outlined" color="primary" size="medium">Sign up</Button>
+                <Button variant="contained" color="primary" size="medium"
+                        onClick={props.login}>Log in</Button>
+                <Button variant="outlined" color="primary" size="medium"
+                        onClick={props.signup}>Sign up</Button>
             </div>
         </div>
     )
