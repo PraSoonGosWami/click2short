@@ -1,15 +1,16 @@
 import React,{Suspense} from 'react'
 import {Route, Switch} from "react-router";
 import Style from './MainComponent.module.css'
+import Spinner from "../../../../UI/Spinner/Spinner";
 
 const HomePage = React.lazy(()=> import('../../Pages/HomePage/HomePage'))
 
 const MainComponent = (props) => {
     return(
         <div className={Style.MainComponent}>
-            <Suspense fallback={<h2>Loading...</h2>} >
+            <Suspense fallback={<Spinner/>} >
                 <Switch>
-                    <Route path={'/'} exact component={()=><HomePage login={props.login}/>}/>
+                    <Route path={'/'} exact component={()=><HomePage login={props.login} signup={props.signup}/>}/>
                 </Switch>
             </Suspense>
         </div>

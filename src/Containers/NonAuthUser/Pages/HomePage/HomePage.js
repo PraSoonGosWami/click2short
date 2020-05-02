@@ -136,7 +136,7 @@ const HomePage = (props) => {
 
                     />
                 </div>
-                <Button variant="contained" color="primary" size={"large"} onClick={props.login}>Create an account now</Button>
+                <Button variant="contained" color="primary" size={"large"} onClick={props.signup}>Create an account now</Button>
 
             </main>
 
