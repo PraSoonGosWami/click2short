@@ -112,7 +112,8 @@ const Signup = (props) => {
 
         AxiosInstance.post(url, data)
             .then(res=>{
-                contextVal.setUser(res.data)
+                console.log(res.data)
+                contextVal.setUser(res.data.user)
                 contextVal.setIsLoggedIn(true)
                 localStorage.setItem("user", JSON.stringify(res.data.user))
             })

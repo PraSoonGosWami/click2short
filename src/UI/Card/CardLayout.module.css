@@ -1,7 +1,7 @@
 .CardLayout{
     width: 300px;
     height: 400px;
-    margin: 10px 0;
+    margin: 20px 16px;
     transition: all 0.4s ease;
 }
 
