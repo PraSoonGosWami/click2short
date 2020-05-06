@@ -4,7 +4,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Style from './Auth.module.css'
 import Login from "./Login/Login";
-import Logo from '../../../../Assets/logo.png'
+import Logo from '../../../../Assets/logo_white.png'
 import Signup from "./Signup/Signup";
 
 

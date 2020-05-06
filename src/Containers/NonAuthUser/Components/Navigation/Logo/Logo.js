@@ -5,10 +5,7 @@ import Style from './Logo.module.css'
 const Logo = (props) => {
     return(
         <img src={logo} alt={"Click2Short"} className={Style.Logo}/>
-        /*
-        <Link to={'/'}>
 
-        </Link>*/
     )
 }
 

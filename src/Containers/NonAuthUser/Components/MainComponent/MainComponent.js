@@ -1,16 +1,18 @@
 import React,{Suspense} from 'react'
-import {Route, Switch} from "react-router";
+import {Redirect, Route, Switch, useHistory} from "react-router";
 import Style from './MainComponent.module.css'
 import Spinner from "../../../../UI/Spinner/Spinner";
 
 const HomePage = React.lazy(()=> import('../../Pages/HomePage/HomePage'))
 
 const MainComponent = (props) => {
+    const history = useHistory()
     return(
         <div className={Style.MainComponent}>
             <Suspense fallback={<Spinner/>} >
                 <Switch>
                     <Route path={'/'} exact component={()=><HomePage login={props.login} signup={props.signup}/>}/>
+                    <Redirect to={'/'}/>
                 </Switch>
             </Suspense>
         </div>

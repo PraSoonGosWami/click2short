@@ -6,8 +6,8 @@ const AlertNotification = (props) => {
 
     return (
         <Snackbar open={props.open} autoHideDuration={6000} onClose={props.onClose}
-                  anchorOrigin={{vertical: "top", horizontal: "left"}}>
-            <Alert severity={props.type} variant="filled" onClose={props.onClose}>
+                  anchorOrigin={{vertical: "bottom", horizontal: "left"}} style={{marginBottom:"6px",marginLeft:"6px",marginRight:"6px"}}>
+            <Alert severity={props.type} variant="filled" onClose={props.onClose} >
                 {props.children}
             </Alert>
         </Snackbar>

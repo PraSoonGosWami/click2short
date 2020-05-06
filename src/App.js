@@ -5,6 +5,7 @@ import  muiTheme from './UI/MaterialTheme/mui.json'
 import {AppContext} from "./Context/AppContext";
 import NoAuthUser from "./Containers/NonAuthUser/NoAuthUser";
 import Spinner from "./UI/Spinner/Spinner";
+import AuthUser from "./Containers/AuthUser/AuthUser";
 
 const theme = createMuiTheme(muiTheme)
 
@@ -23,14 +24,13 @@ function App() {
         }
         setIsLoggedIn(contextValue.isLoggedIn)
 
-
     },[contextValue.isLoggedIn])
+
 
     return (
         <ThemeProvider theme={theme}>
             {isLoggedIn === null && <Spinner/>}
-            { isLoggedIn !== null && isLoggedIn ?<div><h2>{contextValue.user.name}</h2></div>
-                :<NoAuthUser/>}
+            { isLoggedIn !== null && isLoggedIn ? <AuthUser/> :<NoAuthUser/>}
         </ThemeProvider>
 
     );

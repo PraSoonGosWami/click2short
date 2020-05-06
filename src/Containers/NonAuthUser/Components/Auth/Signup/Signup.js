@@ -7,6 +7,8 @@ import useTheme from "@material-ui/core/styles/useTheme";
 
 import AxiosInstance from '../../../../../Services/AxiosInstance/AxiosInstance'
 import {AppContext} from "../../../../../Context/AppContext";
+import CircularProgress from "@material-ui/core/CircularProgress";
+import useAlert from "../../../../../Hooks/useAlert/useAlert";
 
 
 const Signup = (props) => {
@@ -16,7 +18,7 @@ const Signup = (props) => {
 
     const contextVal = useContext(AppContext)
 
-
+    const {addAlert} = useAlert()
     const [email, setEmail] = useState("")
     const [psd, setPsd] = useState("")
     const [phone, setPhone] = useState("")
@@ -31,6 +33,7 @@ const Signup = (props) => {
     const [lNameError, setLNameError] = useState("")
 
     const [disButton, setDisButton] = useState(true)
+    const  [loading, setLoading] = useState(false)
 
     const fNameTextHandler = (event) => {
         const val = event.target.value
@@ -102,6 +105,7 @@ const Signup = (props) => {
 
     const formEventHandler = (event) => {
         event.preventDefault()
+        setLoading(true)
         const url = 'user/signup'
         const data = {
             name: fName.toString().trim() + " " + lName.toString().trim(),
@@ -117,7 +121,8 @@ const Signup = (props) => {
                 contextVal.setIsLoggedIn(true)
                 localStorage.setItem("user", JSON.stringify(res.data.user))
             })
-            .catch(err => {console.log(err.response.data.message)})
+            .catch(err => {addAlert(err.response.data.message,'error')})
+            .finally(() => setLoading(false))
 
     }
     return (
@@ -193,7 +198,7 @@ const Signup = (props) => {
                         fNameError.length !== 0 || lNameError.length !== 0 ||
                         phoneError.length !== 0
                     )}
-                >Sign up</Button>
+                >{loading? <CircularProgress color={"secondary"}/> : "Sign up"}</Button>
             </form>
             <h5 className={Style.LoginForgotPsd}>** Your data is encrypted and stored securely in our database</h5>
         </div>

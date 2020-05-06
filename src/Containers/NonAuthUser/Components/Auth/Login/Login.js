@@ -1,10 +1,13 @@
-import React, {useContext, useState} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Style from './Login.module.css'
 import Button from "@material-ui/core/Button";
 import {AppContext} from "../../../../../Context/AppContext";
 import AxiosInstance from '../../../../../Services/AxiosInstance/AxiosInstance'
+import useAlert from "../../../../../Hooks/useAlert/useAlert";
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 
 const Login = (props) => {
 
@@ -18,8 +21,11 @@ const Login = (props) => {
     // error messages for text fields
     const [emailError, setEmailError] = useState("")
     const [psdError, setPsdError] = useState(" ")
-
     const [disButton, setDisButton] = useState(true)
+
+    const { addAlert } = useAlert()
+
+    const [loading, setLoading] = useState(false)
 
     const emailTextHandler = (event) => {
         const val = event.target.value
@@ -37,7 +43,6 @@ const Login = (props) => {
         setEmailError('')
 
     }
-
     const psdTextHandler = (event) => {
         setDisButton(false)
         const val = event.target.value
@@ -48,9 +53,9 @@ const Login = (props) => {
         }
         setPsdError('')
     }
-
     const formEventHandler = (event) => {
         event.preventDefault()
+        setLoading(true)
         const url = 'user/signin'
         const data = {email : email.toString().trim(), password : psd.toString().trim()}
 
@@ -60,9 +65,8 @@ const Login = (props) => {
                 contextVal.setIsLoggedIn(true)
                 localStorage.setItem("user", JSON.stringify(res.data.user))
             })
-            .catch(err=> console.log(err.response.data.message))
-
-
+            .catch(err=> addAlert(err.response.data.message,'error'))
+            .finally(()=>setLoading(false))
 
     }
     return (
@@ -99,8 +103,9 @@ const Login = (props) => {
                     /> <h4 style={{fontWeight: "normal"}}>Remember me </h4>
                 </span>
                 <Button type={"submit"} variant="contained" color="primary" size="large"
-                        disabled={disButton?true:(emailError.length !==0 || psdError.length !==0)}>Log
-                    in</Button>
+                        disabled={disButton?true:(emailError.length !==0 || psdError.length !==0)}>
+                    {loading? <CircularProgress color={"secondary"}/> : "Log in"}
+                </Button>
             </form>
             <h5 className={Style.LoginForgotPsd}>Forgot password</h5>
         </div>

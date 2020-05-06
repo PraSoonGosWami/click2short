@@ -1,0 +1,39 @@
+.NavMenu{
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background-color: rgb(33, 150, 243);
+    padding: 10px 20px;
+    color: white;
+    box-shadow: 0 2px 6px #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.NavMenu > img{
+    max-height: 38px;
+    margin-top: 4px;
+}
+
+
+.NavMenu  > button{
+    font-family: "Segoe UI";
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    margin-right: 6px;
+    color: white;
+    font-weight: bold;
+    max-width: 70%;
+}
+
+@media (max-width: 500px) {
+    .NavMenu{
+        padding: 8px 4px;
+    }
+    .NavMenu > img{
+        margin: 0 2px;
+    }
+}

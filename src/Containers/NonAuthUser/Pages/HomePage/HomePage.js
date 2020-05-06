@@ -8,7 +8,6 @@ import Style from './HomePage.module.css'
 import {Parallax} from 'react-parallax';
 import Button from "@material-ui/core/Button";
 import AxiosInstance from '../../../../Services/AxiosInstance/AxiosInstance'
-import AlertNotification from '../../../../UI/Alert/AlertNotification'
 
 import CardLayout from "../../../../UI/Card/CardLayout";
 import AppFooter from "../../../../UI/AppFooter/AppFooter";
@@ -19,9 +18,7 @@ const HomePage = (props) => {
 
     const [longURL, setLongURL] = useState("")
     const [conv, setConv] = useState(false)
-    const [showAlert, setShowAlert] = useState(false)
-    const [alertType, setAlertType] = useState("error")
-    const [alertMsg, setAlertMsg] = useState("")
+
 
     const { addAlert } = useAlert()
 
