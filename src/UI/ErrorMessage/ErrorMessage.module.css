@@ -1,0 +1,21 @@
+.ErrorMessage{
+    text-align: center;
+    padding: 12px;
+    transform: translate(-50%,-50%);
+    position: fixed;
+    top: 50%;
+    left : 50%;
+    width: 90%;
+}
+
+.ErrorMessage > img{
+    margin: 16px;
+    max-width: 200px;
+    object-fit: scale-down;
+}
+
+.ErrorMessage > h4{
+    color: #454545;
+    word-spacing: 1px;
+    margin-bottom: 24px;
+}

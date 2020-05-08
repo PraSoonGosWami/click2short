@@ -1,3 +1,29 @@
 .Dashboard{
+    scroll-behavior: smooth;
+}
+.Dashboard > header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 12px 12px 4px 12px;
+    width: 30%;
+    color: #454545;
+}
+.Dashboard > aside{
+    width: 30%;
+    margin: 12px 12px 4px 12px;
+}
 
+.List{
+    width: 30%;
+}
+
+@media (max-width: 700px) {
+    .Dashboard > header,
+    .Dashboard > aside{
+        width: 94%;
+    }
+    .List{
+        width: 94%;
+    }
 }

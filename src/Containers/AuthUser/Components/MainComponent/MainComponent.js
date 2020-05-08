@@ -5,7 +5,7 @@ import Dashboard from "../../Pages/Dashboard/Dashboard";
 
 const MainComponent = (props) => {
     return (
-        <div style={{padding:"12px"}}>
+        <div style={{padding:"8px"}}>
             <Suspense fallback={<Spinner/>}>
                 <Switch>
                     <Route path={'/dashboard'} exact component={Dashboard}/>

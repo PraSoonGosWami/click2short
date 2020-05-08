@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import TextField from '@material-ui/core/TextField';
 import Checkbox from '@material-ui/core/Checkbox';
 import Style from './Login.module.css'
@@ -61,9 +61,11 @@ const Login = (props) => {
 
         AxiosInstance.post(url,data)
             .then(res => {
-                contextVal.setUser(res.data)
+                contextVal.setUser(res.data.user)
+                contextVal.setToken(res.data.token)
                 contextVal.setIsLoggedIn(true)
                 localStorage.setItem("user", JSON.stringify(res.data.user))
+                localStorage.setItem("token", JSON.stringify(res.data.token))
             })
             .catch(err=> addAlert(err.response.data.message,'error'))
             .finally(()=>setLoading(false))

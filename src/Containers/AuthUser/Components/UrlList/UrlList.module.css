@@ -1,0 +1,62 @@
+.UrlList {
+    margin: 0 10px;
+    padding-top: 16px;
+    padding-left: 2px;
+    padding-right: 2px;
+    color: grey;
+    font-weight: normal;
+    width: 100%;
+    background-position: center;
+    transition: background 0.7s;
+    text-overflow: ellipsis;
+}
+
+.UrlList > h5{
+    margin-bottom: 2px;
+    font-weight: normal;
+}
+.UrlList > h4{
+    margin-bottom: 4px;
+    word-spacing: 1px;
+    font-size: 0.9em;
+    margin-right: 32px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+
+.UrlList > section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+}
+
+.UrlList > section > a {
+    color: rgb(33, 150, 243);
+    text-decoration: none;
+    font-size: 0.8em;
+    margin-right: 16px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.UrlList > section > h5 {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.UrlList:hover {
+    background: white radial-gradient(circle, transparent 1%, white 1%) center/15000%;
+    cursor: pointer;
+}
+.UrlList:active {
+    background-color: rgba(212, 209, 209, 0.52);
+    background-size: 100%;
+    transition: background 0s;
+}
+

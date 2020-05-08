@@ -116,10 +116,11 @@ const Signup = (props) => {
 
         AxiosInstance.post(url, data)
             .then(res=>{
-                console.log(res.data)
                 contextVal.setUser(res.data.user)
+                contextVal.setToken(res.data.token)
                 contextVal.setIsLoggedIn(true)
                 localStorage.setItem("user", JSON.stringify(res.data.user))
+                localStorage.setItem("token", JSON.stringify(res.data.token))
             })
             .catch(err => {addAlert(err.response.data.message,'error')})
             .finally(() => setLoading(false))

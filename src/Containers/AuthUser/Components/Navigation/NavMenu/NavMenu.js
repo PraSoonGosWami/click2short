@@ -5,13 +5,13 @@ import Menu from '@material-ui/core/Menu'
 import MenuItem from '@material-ui/core/MenuItem'
 import Style from './NavMenu.module.css'
 import Button from "@material-ui/core/Button"
-import {AppContext} from "../../../../Context/AppContext"
+import {AppContext} from "../../../../../Context/AppContext"
 import Divider from '@material-ui/core/Divider';
 import useTheme from "@material-ui/core/styles/useTheme";
 import useMediaQuery from "@material-ui/core/useMediaQuery"
 
-import Logo from '../../../../Assets/logo_white.png'
-import LogoSm  from '../../../../Assets/logo_only.png'
+import Logo from '../../../../../Assets/logo_white.png'
+import LogoSm  from '../../../../../Assets/logo_only.png'
 
 
 const NavMenu = (props) => {
@@ -26,7 +26,7 @@ const NavMenu = (props) => {
     useEffect(() => {
         if (contextVal.user)
             setName(contextVal.user.name)
-    },[contextVal.isLoggedIn])
+    },[contextVal.user])
 
     useEffect(()=>{
         if (phoneScreenSize){

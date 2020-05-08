@@ -3,7 +3,8 @@
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding: 16px;
+    padding: 32px 12px 0px 12px;
+    font-size: 0.85em;
 }
 
 .AppFooter > aside{
@@ -12,7 +13,7 @@
 }
 
 .AppFooter > aside > img{
-    max-width: 250px;
+    max-width: 170px;
 }
 
 .AppFooter > main{
@@ -36,8 +37,8 @@
 }
 
 .Author > img{
-    max-width: 60px;
-    border-radius: 30px;
+    max-width: 50px;
+    border-radius: 25px;
     margin: 8px;
 }
 .Author > h3{

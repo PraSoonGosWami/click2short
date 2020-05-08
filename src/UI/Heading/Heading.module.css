@@ -1,0 +1,10 @@
+.Heading{
+    color: #585454;
+    letter-spacing: 1px;
+    margin: 0;
+    padding: 6px 2px;
+}
+
+.Heading > h3::before{
+    content: "> ";
+}

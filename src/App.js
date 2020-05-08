@@ -15,12 +15,16 @@ function App() {
 
     useEffect( ()=>{
         const userData =  localStorage.getItem("user")
+        const token = localStorage.getItem("token")
         if(!userData){
             contextValue.setIsLoggedIn(false)
             contextValue.setUser(null)
+            contextValue.setToken(null)
         }else {
             contextValue.setIsLoggedIn(true)
             contextValue.setUser(JSON.parse(userData))
+            contextValue.setToken(JSON.parse(token))
+
         }
         setIsLoggedIn(contextValue.isLoggedIn)
 
