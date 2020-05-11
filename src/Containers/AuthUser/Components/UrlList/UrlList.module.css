@@ -1,5 +1,4 @@
 .UrlList {
-    margin: 0 10px;
     padding-top: 16px;
     padding-left: 2px;
     padding-right: 2px;
@@ -9,6 +8,8 @@
     background-position: center;
     transition: background 0.7s;
     text-overflow: ellipsis;
+    text-decoration: none;
+    display: block;
 }
 
 .UrlList > h5{
@@ -23,6 +24,7 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+    cursor: pointer;
 
 }
 
@@ -33,15 +35,17 @@
     margin-bottom: 12px;
 }
 
-.UrlList > section > a {
+.UrlList > section > h4 {
     color: rgb(33, 150, 243);
-    text-decoration: none;
     font-size: 0.8em;
     margin-right: 16px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    font-weight: normal;
 }
+
+
 
 .UrlList > section > h5 {
     display: flex;
@@ -49,7 +53,11 @@
     justify-content: flex-end;
 }
 
+.UrlList.active{
+    border-bottom: 4px solid rgb(33, 150, 243);
+    outline: none;
 
+}
 .UrlList:hover {
     background: white radial-gradient(circle, transparent 1%, white 1%) center/15000%;
     cursor: pointer;

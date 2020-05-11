@@ -1,0 +1,90 @@
+.UrlDetails{
+    margin: 16px;
+    display: block;
+    box-sizing: border-box;
+    word-break: break-all;
+    animation: fade 0.4s ease-in-out;
+    animation-fill-mode: backwards;
+}
+
+@keyframes fade {
+    from{opacity: 0;}
+    to{opacity: 100%;}
+}
+
+.UrlDetails > p:first-of-type{
+    font-size: 0.8em;
+    color: #454545;
+    word-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.UrlDetails > h3:first-of-type{
+    margin-right: 32px;
+    margin-bottom: 8px;
+
+}
+
+.UrlDetails > a{
+    display: block;
+    color: #454545;
+    text-decoration: none;
+
+}
+.UrlDetails > section{
+    margin-top: 18px;
+    margin-bottom: 34px;
+}
+.UrlDetails > section > a{
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(33, 150, 243);
+    font-size: 0.9em;
+    word-spacing: 1px;
+}
+
+@media (hover: hover) {
+    .UrlDetails > a:hover,
+    .UrlDetails > section > a:hover{
+        text-decoration: underline;
+    }
+}
+.UrlDetails > section > article{
+    margin-top: 22px;
+}
+.UrlDetails > section > article > button{
+    margin-right: 12px;
+}
+.Cancel{
+    position: absolute;
+    top: 20%;
+    right: 16px;
+    display: none;
+}
+
+.UrlClickGraph{
+    margin: 16px 0px;
+}
+
+.UrlClickGraph > h3:first-of-type{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    word-spacing: 2px;
+    font-weight: normal;
+}
+.UrlClickGraph > p{
+    color: #454545;
+}
+
+@media (max-width: 700px) {
+    .UrlDetails{
+        margin-left: 8px;
+        animation-delay: 0.4s;
+
+    }
+    .Cancel{
+        top: 20px;
+        display: block;
+    }
+}

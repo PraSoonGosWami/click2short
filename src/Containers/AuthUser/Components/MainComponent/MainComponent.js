@@ -8,11 +8,11 @@ const MainComponent = (props) => {
         <div style={{padding:"8px"}}>
             <Suspense fallback={<Spinner/>}>
                 <Switch>
-                    <Route path={'/dashboard'} exact component={Dashboard}/>
+                    <Route path={'/dashboard'}  component={Dashboard}/>
                 </Switch>
             </Suspense>
         </div>
     )
 }
 
-export default MainComponent
+export default React.memo(MainComponent,(prevState, nextState) => prevState !== nextState)

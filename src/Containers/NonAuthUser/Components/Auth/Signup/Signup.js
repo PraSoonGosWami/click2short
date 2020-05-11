@@ -201,7 +201,7 @@ const Signup = (props) => {
                     )}
                 >{loading? <CircularProgress color={"secondary"}/> : "Sign up"}</Button>
             </form>
-            <h5 className={Style.LoginForgotPsd}>** Your data is encrypted and stored securely in our database</h5>
+            <h5 className={Style.LoginForgotPsd}>** Your data is encrypted and stored securely on our servers</h5>
         </div>
     )
 }

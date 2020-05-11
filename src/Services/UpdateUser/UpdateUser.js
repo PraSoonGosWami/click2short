@@ -9,6 +9,7 @@ const UpdateUser = (context) => {
             .then(res=>{
                 const data = res.data.user
                 contextVal.setUser(data)
+                localStorage.setItem('user',JSON.stringify(data))
             })
             .catch(err => {
                 console.log(err)

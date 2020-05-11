@@ -1,4 +1,4 @@
-import React, {useContext, useEffect} from 'react'
+import React, {useContext, useEffect, useState} from 'react'
 import {AppContext} from "../../Context/AppContext";
 import useAlert from "../../Hooks/useAlert/useAlert";
 import Fab from '@material-ui/core/Fab';
@@ -7,11 +7,15 @@ import NavMenu from "./Components/Navigation/NavMenu/NavMenu";
 import MainComponent from "./Components/MainComponent/MainComponent";
 import {useHistory} from "react-router";
 import UpdateUser from "../../Services/UpdateUser/UpdateUser";
+import CreateUrl from "./Components/CreateUrl/CreateUrl";
 
 const AuthUser = (props) => {
     const contextValue = useContext(AppContext)
     const {addAlert} = useAlert()
     const history = useHistory()
+
+    const [openModal,setOpenModal] = useState(false)
+
 
     //gets current user data only once the dashboard loads
     useEffect(()=>{
@@ -20,12 +24,22 @@ const AuthUser = (props) => {
     },[])
     useEffect(()=>{
         if(contextValue.isLoggedIn) {
-            history.replace('/dashboard')
+
+            if(contextValue.user && contextValue.user.customURLS.length >=1 || contextValue.user.autoURLS.length >=1) {
+                history.replace('/dashboard/0')
+                document.title = "Click2Short | "+contextValue.user.name
+            }else{
+                history.replace('/dashboard')
+            }
         }
         else{
             logoutHandler()
         }
     },[contextValue.isLoggedIn])
+
+    const modalHandler = () => {
+        setOpenModal(true)
+    }
 
     const logoutHandler = () => {
         contextValue.setIsLoggedIn(false)
@@ -37,12 +51,13 @@ const AuthUser = (props) => {
     }
 
     return(
-        <div >
+        <div>
             <NavMenu logoutHandler={()=>logoutHandler()}/>
             <MainComponent/>
-            <Fab color="primary" variant={"extended"} style={{position:"fixed",bottom:'26px',right:'16px'}}>
+            <Fab color="primary" variant={"extended"} style={{position:"fixed",bottom:'26px',right:'16px'}} onClick={()=>modalHandler()}>
                 <AddIcon fontSize={"small"}/>Create
             </Fab>
+            <CreateUrl open={openModal} onClose={()=> setOpenModal(false)}/>
         </div>
     )
 }

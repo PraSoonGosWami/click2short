@@ -50,7 +50,6 @@ const NavMenu = (props) => {
             <Button
                 variant={"text"}
                 size={"medium"}
-                color={"inherit"}
                 onClick={(event => handleClick(event))}
                 startIcon={<PersonIcon color={"secondary"} fontSize={"large"}/>}
                 endIcon={<ArrowDropDownIcon color={"secondary"}/>}>

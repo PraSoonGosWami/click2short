@@ -1,4 +1,4 @@
-import React, {createContext, useState} from 'react'
+import React, {createContext, useCallback, useMemo, useState} from 'react'
 import AlertNotification from "../UI/Alert/AlertNotification";
 
 export const SnackBarContext = createContext([])
@@ -8,12 +8,12 @@ export function SnackBarProvider({ children }) {
     const [showAlert, setShowAlert] = useState(false)
     const [alert, setAlert] = useState([])
 
-    const addAlert = (message,type) => {
+    const addAlert = useCallback((message,type) => {
         setShowAlert(true)
         setAlert([{message,type}])
-    }
+    },[])
 
-    const value = { addAlert }
+    const value = {addAlert}
 
     return (
         <SnackBarContext.Provider value={value}>

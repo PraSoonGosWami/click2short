@@ -32,8 +32,8 @@ const Auth = (props) => {
                     textColor="primary"
                     onChange={handleChange}
                     variant={"fullWidth"}>
-                    <Tab label="Log in"/>
-                    <Tab label="Sign up"/>
+                    <Tab label="Log in" style={{fontWeight:"bold"}}/>
+                    <Tab label="Sign up" style={{fontWeight:"bold"}}/>
                 </Tabs>
             </div>
             <main className={Style.Auth}>
