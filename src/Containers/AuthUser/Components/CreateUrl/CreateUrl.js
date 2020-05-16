@@ -1,6 +1,5 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 import Style from "../../../NonAuthUser/Components/Auth/Auth.module.css";
-import Logo from "../../../../Assets/logo_white.png";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
 
@@ -33,7 +32,7 @@ const CreateUrl = (props) => {
                 </Tabs>
             </div>
             <main className={Style.Auth}>
-                {value === 0 ? <AutoUrl/> : <CustomUrl/>}
+                {value === 0 ? <AutoUrl onClose={props.onClose}/> : <CustomUrl onClose={props.onClose}/>}
             </main>
 
         </DialogModal>

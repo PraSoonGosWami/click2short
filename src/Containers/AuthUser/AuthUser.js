@@ -14,28 +14,24 @@ const AuthUser = (props) => {
     const {addAlert} = useAlert()
     const history = useHistory()
 
-    const [openModal,setOpenModal] = useState(false)
+    const [openModal, setOpenModal] = useState(false)
 
 
     //gets current user data only once the dashboard loads
-    useEffect(()=>{
+    useEffect(() => {
         UpdateUser(contextValue)
-
-    },[])
-    useEffect(()=>{
-        if(contextValue.isLoggedIn) {
-
-            if(contextValue.user && contextValue.user.customURLS.length >=1 || contextValue.user.autoURLS.length >=1) {
-                history.replace('/dashboard/0')
-                document.title = "Click2Short | "+contextValue.user.name
-            }else{
-                history.replace('/dashboard')
+    }, [])
+    useEffect(() => {
+        if (contextValue.isLoggedIn) {
+            if (contextValue.user) {
+                document.title = "Click2Short | " + contextValue.user.name
             }
-        }
-        else{
+            history.replace('/dashboard/')
+
+        } else {
             logoutHandler()
         }
-    },[contextValue.isLoggedIn])
+    }, [contextValue.isLoggedIn])
 
     const modalHandler = () => {
         setOpenModal(true)
@@ -47,17 +43,18 @@ const AuthUser = (props) => {
         contextValue.setToken(null)
         localStorage.clear()
         history.replace('/')
-        addAlert("Logged out successfully!","info")
+        addAlert("Logged out successfully!", "info")
     }
 
-    return(
+    return (
         <div>
-            <NavMenu logoutHandler={()=>logoutHandler()}/>
-            <MainComponent/>
-            <Fab color="primary" variant={"extended"} style={{position:"fixed",bottom:'26px',right:'16px'}} onClick={()=>modalHandler()}>
+            <NavMenu logoutHandler={() => logoutHandler()}/>
+            <MainComponent createUrl={() => modalHandler()}/>
+            <Fab color="primary" variant={"extended"} style={{position: "fixed", bottom: '26px', right: '16px'}}
+                 onClick={() => modalHandler()}>
                 <AddIcon fontSize={"small"}/>Create
             </Fab>
-            <CreateUrl open={openModal} onClose={()=> setOpenModal(false)}/>
+            <CreateUrl open={openModal} onClose={() => setOpenModal(false)}/>
         </div>
     )
 }

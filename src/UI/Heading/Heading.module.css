@@ -3,6 +3,7 @@
     letter-spacing: 1px;
     margin: 0;
     padding: 6px 2px;
+    text-align: left;
 }
 
 .Heading > h3::before{

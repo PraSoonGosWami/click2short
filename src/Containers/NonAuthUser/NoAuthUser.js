@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import Navigation from "./Components/Navigation/Navigation";
 import MainComponent from "./Components/MainComponent/MainComponent";
 import Auth from "./Components/Auth/Auth";
@@ -12,6 +12,7 @@ const NoAuthUser = (props) => {
         setActiveTab(tabValue)
         setAuth(true)
     }
+
 
     return(
         <div>

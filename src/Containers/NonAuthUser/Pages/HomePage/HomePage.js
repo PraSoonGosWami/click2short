@@ -13,13 +13,14 @@ import CardLayout from "../../../../UI/Card/CardLayout";
 import AppFooter from "../../../../UI/AppFooter/AppFooter";
 
 import useAlert from "../../../../Hooks/useAlert/useAlert";
+import {useHistory} from "react-router";
 
 const HomePage = (props) => {
 
     const [longURL, setLongURL] = useState("")
     const [conv, setConv] = useState(false)
 
-
+    const history = useHistory()
     const { addAlert } = useAlert()
 
     const textHandler = (event) => {
@@ -97,7 +98,7 @@ const HomePage = (props) => {
                         type={"submit"}
                     >{conv ? "Copy Link" : "Shorten"}</Button>
                 </form>
-                <p>By clicking SHORTEN, you are agreeing to Click2Short’s Terms of Service and Privacy Policy</p>
+                <p>By clicking SHORTEN, you are agreeing to Click2Short’s <span style={{textDecoration:"underline"}} onClick={()=>history.push('/terms-policy')}>Terms of Service and Privacy Policy</span></p>
 
             </section>
             <main>

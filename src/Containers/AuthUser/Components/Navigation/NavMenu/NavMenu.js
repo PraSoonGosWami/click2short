@@ -12,6 +12,7 @@ import useMediaQuery from "@material-ui/core/useMediaQuery"
 
 import Logo from '../../../../../Assets/logo_white.png'
 import LogoSm  from '../../../../../Assets/logo_only.png'
+import {useHistory} from "react-router";
 
 
 const NavMenu = (props) => {
@@ -20,6 +21,7 @@ const NavMenu = (props) => {
     const [anchorEl, setAnchorEl] = useState(null);
     const [logo, setLogo] = useState(null)
 
+    const history = useHistory()
     const theme = useTheme()
     const phoneScreenSize = useMediaQuery(theme.breakpoints.down('xs'))
 
@@ -39,6 +41,24 @@ const NavMenu = (props) => {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+
+    const home = () =>{
+        history.replace('/dashboard')
+        handleClose()
+    }
+    const contactus = () => {
+        history.push('/terms-policy#contact')
+        handleClose()
+    }
+    const termsPolicies = () => {
+        history.push('/terms-policy')
+        handleClose()
+    }
+
+    const profileClick = () => {
+        history.push('/my-profile')
+        handleClose()
+    }
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -72,11 +92,11 @@ const NavMenu = (props) => {
                     horizontal: 'center',
                 }}
             >
-                <MenuItem onClick={handleClose}>Profile Settings</MenuItem>
-                <MenuItem onClick={handleClose}>Account Settings</MenuItem>
+                <MenuItem onClick={home}>Home</MenuItem>
+                <MenuItem onClick={profileClick}>Profile Settings</MenuItem>
                 <Divider/>
-                <MenuItem onClick={handleClose}>Contact Us</MenuItem>
-                <MenuItem onClick={handleClose}>Terms & Conditions</MenuItem>
+                <MenuItem onClick={contactus}>Contact Us</MenuItem>
+                <MenuItem onClick={termsPolicies}>Terms & Conditions</MenuItem>
                 <MenuItem onClick={props.logoutHandler}>Log Out</MenuItem>
             </Menu>
         </div>

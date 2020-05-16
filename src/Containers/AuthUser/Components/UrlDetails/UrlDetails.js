@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react'
+import React, {useContext, useEffect} from 'react'
 import {getDateAndTime} from "../../../../Services/FormatDate/FormatDate";
 import CloseIcon from '@material-ui/icons/Cancel'
 import Style from './UrlDetails.module.css'
@@ -6,12 +6,14 @@ import Button from "@material-ui/core/Button";
 import Divider from "@material-ui/core/Divider";
 import BarIcon from "@material-ui/icons/BarChart"
 import useAlert from "../../../../Hooks/useAlert/useAlert";
+import {AppContext} from "../../../../Context/AppContext";
+import AxiosInstance from '../../../../Services/AxiosInstance/AxiosInstance'
 
 const UrlDetails = (props) => {
     const data = props.data
     const redirectUrl = process.env.REACT_APP_REDIRECT_URL + data.urlCode
     const {addAlert} = useAlert()
-
+    const contextVal = useContext(AppContext)
     const date = getDateAndTime(data.timestamp)
 
     useEffect(()=>{
@@ -23,7 +25,20 @@ const UrlDetails = (props) => {
         addAlert("Short link copied to clipboard",'success')
     }
     const deleteButtonHandler =() => {
-        addAlert("Deleted successfully",'success')
+        const url = '/url/delete'
+        AxiosInstance.delete(url,{headers: {'Authorization': 'Bearer ' + contextVal.token}, data:{urlId: data._id}})
+            .then(res => {
+                if(res.data){
+                    props.refreshData()
+                    addAlert(res.data.message,'success')
+                }
+            })
+            .catch(err => {
+                if(err.response){
+                    addAlert(err.response.data.message,'error')
+                }
+            })
+
     }
     return(
         <div className={Style.UrlDetails}>

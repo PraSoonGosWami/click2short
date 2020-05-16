@@ -51,7 +51,7 @@ const Signup = (props) => {
         setDisButton(false)
         setLName(val)
         if (val.length === 0) {
-            setLNameError("Please enter first name")
+            setLNameError("Please enter last name")
             return
         }
 
@@ -199,7 +199,7 @@ const Signup = (props) => {
                         fNameError.length !== 0 || lNameError.length !== 0 ||
                         phoneError.length !== 0
                     )}
-                >{loading? <CircularProgress color={"secondary"}/> : "Sign up"}</Button>
+                >{loading? <CircularProgress size={25} color={"secondary"}/> : "Sign up"}</Button>
             </form>
             <h5 className={Style.LoginForgotPsd}>** Your data is encrypted and stored securely on our servers</h5>
         </div>

@@ -1,10 +1,9 @@
-.AutoUrl{
+.CustomUrl{
     padding: 12px 16px;
     animation: fade 0.4s ease-in-out;
-
 }
 
-.AutoUrl > h4{
+.CustomUrl > h4{
     margin: 16px 4px 25px 4px;
     font-weight: bolder;
     letter-spacing: 1px;
@@ -12,28 +11,29 @@
     word-spacing: 1px;
     font-size: 0.9em;
 }
-.AutoUrl > h5{
+.CustomUrl > h5{
     font-size: 0.8em;
     color: #454545;
     font-weight: normal;
     text-align: center;
 }
 
-.AutoUrl > h5 > span{
+.CustomUrl > h5 > span{
     cursor: pointer;
     color: rgba(33, 150, 243, 1);
 }
-
-.AutoUrl > form > button{
+.CustomUrl > form > button{
     margin: 22px 0;
 }
-.AutoUrl > form > a{
-    margin: 16px 4px 0 4px;
+.CustomUrl > form > section{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.CustomUrl > form > section > button{
     display: block;
-    text-decoration: none;
-    color : rgba(33, 150, 243, 1);
-    font-weight: bolder;
-    letter-spacing: 1px;
+    margin-top: 12px;
 }
 
 @keyframes fade {

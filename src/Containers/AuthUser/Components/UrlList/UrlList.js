@@ -17,7 +17,7 @@ const UrlList = (props) => {
 
 
     return(
-        <NavLink to={'/dashboard/'+props.index} className={Style.UrlList} onClick={props.onClick} activeClassName={Style.active} >
+        <NavLink to={'/dashboard/'+data._id} className={Style.UrlList} onClick={props.onClick} activeClassName={Style.active} >
             <h5>{date}</h5>
             <h4>{title}</h4>
             <section>

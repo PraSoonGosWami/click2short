@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React,{ useContext, useEffect, useState} from 'react';
 import {createMuiTheme} from '@material-ui/core/styles';
 import {ThemeProvider} from '@material-ui/styles';
 import  muiTheme from './UI/MaterialTheme/mui.json'
@@ -24,11 +24,11 @@ function App() {
             contextValue.setIsLoggedIn(true)
             contextValue.setUser(JSON.parse(userData))
             contextValue.setToken(JSON.parse(token))
-
         }
         setIsLoggedIn(contextValue.isLoggedIn)
 
     },[contextValue.isLoggedIn])
+
 
 
     return (

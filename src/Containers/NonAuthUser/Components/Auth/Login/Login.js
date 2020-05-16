@@ -106,7 +106,7 @@ const Login = (props) => {
                 </span>
                 <Button type={"submit"} variant="contained" color="primary" size="large"
                         disabled={disButton?true:(emailError.length !==0 || psdError.length !==0)}>
-                    {loading? <CircularProgress color={"secondary"}/> : "Log in"}
+                    {loading?<CircularProgress size={25} color={"secondary"}/> : "Log in"}
                 </Button>
             </form>
             <h5 className={Style.LoginForgotPsd}>Forgot password</h5>

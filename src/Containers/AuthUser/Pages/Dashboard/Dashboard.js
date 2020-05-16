@@ -29,14 +29,20 @@ const Dashboard = (props) => {
         getData()
     }, [contextValue.token])
 
+    const history = useHistory()
     const getData = () => {
         AxiosInstance.get('url/get', {headers: {'Authorization': 'Bearer ' + contextValue.token}})
             .then(res => {
-                if (!res.data || res.data.length === 0)
+                if (!res.data || res.data.length === 0){
                     setNoData(true)
+                    setPassedData(null)
+                    setUrls(null)
+                }
                 else{
                     setUrls(res.data)
                     setPassedData(res.data[0])
+                    history.replace('/dashboard/'+res.data[0]._id)
+                    setNoData(false)
                 }
             })
             .catch(err => {
@@ -46,10 +52,10 @@ const Dashboard = (props) => {
                 setIsLoading(false)
             })
     }
-    const history = useHistory()
-    const listClickHandler = (index,event) => {
+
+    const listClickHandler = (index,id,event) => {
         event.preventDefault()
-        history.replace('/dashboard/'+index)
+        history.replace('/dashboard/'+id)
         setPassedData(urls[index])
         if(isPhone)
             setShow({transform:"translateX(0)"})
@@ -60,16 +66,17 @@ const Dashboard = (props) => {
     return (
         <div className={Style.Dashboard}>
             <Heading>Dashboard</Heading>
-            {noData && <ErrorMessage
+            <Button variant="text" color="primary" size="small" startIcon={<RefreshIcon/>} onClick={()=>getData()}>
+                Refresh
+            </Button>
+            {noData && <ErrorMessage onClick={props.createUrl}
                 text={"It's lonely here! Create your own short urls and watch it grow!!"} src={logo}
                 action={"Create URL"}/>
             }
             {isLoading && <Spinner/>}
             {urls && <div className={Style.DataView}>
                 <aside>
-                    <Button variant="text" color="primary" size="small" startIcon={<RefreshIcon/>} onClick={()=>getData()}>
-                        Refresh
-                    </Button>
+
                     <header>
                         <h5>{urls.length} Links</h5>
                         <h5>Total clicks</h5>
@@ -77,14 +84,14 @@ const Dashboard = (props) => {
                     <Divider/>
                     <div>
                         {urls.map((obj, index) => {
-                            return <UrlList key={obj._id} data={obj} onClick={(event) => listClickHandler(index,event)} index={index}/>
+                            return <UrlList key={obj._id} data={obj} onClick={(event) => listClickHandler(index,obj._id,event)} />
                         })}
                     </div>
                 </aside>
                 {passedData && <main style={show}>
                     <Switch>
                         <Route path={'/dashboard/:id'} component={
-                            ()=><UrlDetails data={passedData} onClick={()=>{setShow({transform:"translateX(100%)"})}}/>
+                            ()=><UrlDetails refreshData={()=>getData()} data={passedData} onClick={()=>{setShow({transform:"translateX(100%)"})}}/>
                         }/>
                     </Switch>
 

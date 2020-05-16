@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react'
+import React, {useContext, useState} from 'react'
 import TextField from "@material-ui/core/TextField";
 import Style from './AutoUrl.module.css'
 import Button from "@material-ui/core/Button";
@@ -6,6 +6,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import AxiosInstance from '../../../../../Services/AxiosInstance/AxiosInstance'
 import {AppContext} from "../../../../../Context/AppContext";
 import useAlert from "../../../../../Hooks/useAlert/useAlert";
+import {useHistory} from "react-router";
 
 const AutoUrl = (props) => {
     const [loading, setLoading] = useState(false)
@@ -13,6 +14,7 @@ const AutoUrl = (props) => {
     const [longUrl, setLongUrl] = useState(null)
     const [disabled, setDisable] = useState(true)
 
+    const history = useHistory()
     const {token} = useContext(AppContext)
 
     const {addAlert} = useAlert()
@@ -60,11 +62,14 @@ const AutoUrl = (props) => {
                     fullWidth type="Paste long URL"/> <br/>
                 {shortUrl && <a href={"http://" + shortUrl} target={"_blank"} rel="noopener noreferrer">{shortUrl}</a>}
                 <Button type={"submit"} variant="contained" color="primary" size="large" fullWidth disabled={disabled}>
-                    {loading ? <CircularProgress color={"secondary"}/> : "Shorten"}
+                    {loading ? <CircularProgress size={25} color={"secondary"}/> : "Shorten"}
                 </Button>
             </form>
 
-            <h5>By clicking SHORTEN, you are agreeing to Click2Short’s Terms of Service and Privacy Policy*</h5>
+            <h5>By clicking SHORTEN, you are agreeing to Click2Short’s <span onClick={()=> {
+                history.push('/terms-policy')
+                props.onClose()
+            }}>Terms of Service and Privacy Policy*</span></h5>
         </div>
 
     )
