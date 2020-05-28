@@ -20,7 +20,7 @@ const TermsPolicies = (props) => {
             <p>1. <b>Introduction</b></p>
             <p>Welcome to <b>Click2Short</b> (“Company”, “we”, “our”, “us”)!</p>
             <p>These Terms of Service (“Terms”, “Terms of Service”) govern your use of our website located
-                at <b>click2short.prasoon.me</b> (together or individually “Service”) operated by <b>Click2Short</b>.
+                at <b>c2s.prasoon.me</b> (together or individually “Service”) operated by <b>Click2Short</b>.
             </p>
             <p>Our Privacy Policy also governs your use of our Service and explains how we collect, safeguard and
                 disclose information that results from your use of our web pages.</p>
@@ -163,11 +163,7 @@ const TermsPolicies = (props) => {
             <p>Click2Short has no control over, and assumes no responsibility for the content, privacy policies, or
                 practices of any third party web sites or services. We do not warrant the offerings of any of these
                 entities/individuals or their websites.</p>
-            <p>For example, the outlined Terms of Service have been created using <a
-                href="https://policymaker.io/">PolicyMaker.io</a>, a free web application for generating high-quality
-                legal documents. PolicyMaker’s <a href="https://policymaker.io/terms-and-conditions/">free Terms and
-                    Conditions generator</a> is an easy-to-use free tool for creating an excellent standard Terms of
-                Service template for a website, blog, e-commerce store or app.</p>
+           
             <p>YOU ACKNOWLEDGE AND AGREE THAT COMPANY SHALL NOT BE RESPONSIBLE OR LIABLE, DIRECTLY OR INDIRECTLY, FOR
                 ANY DAMAGE OR LOSS CAUSED OR ALLEGED TO BE CAUSED BY OR IN CONNECTION WITH USE OF OR RELIANCE ON ANY
                 SUCH CONTENT, GOODS OR SERVICES AVAILABLE ON OR THROUGH ANY SUCH THIRD PARTY WEB SITES OR SERVICES.</p>

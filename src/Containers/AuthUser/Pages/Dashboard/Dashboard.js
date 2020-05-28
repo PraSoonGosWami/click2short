@@ -31,6 +31,7 @@ const Dashboard = (props) => {
 
     const history = useHistory()
     const getData = () => {
+        setIsLoading(true)
         AxiosInstance.get('url/get', {headers: {'Authorization': 'Bearer ' + contextValue.token}})
             .then(res => {
                 if (!res.data || res.data.length === 0){
@@ -74,7 +75,7 @@ const Dashboard = (props) => {
                 action={"Create URL"}/>
             }
             {isLoading && <Spinner/>}
-            {urls && <div className={Style.DataView}>
+            {!isLoading && urls && <div className={Style.DataView}>
                 <aside>
 
                     <header>

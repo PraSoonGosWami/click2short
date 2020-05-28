@@ -8,6 +8,7 @@ import BarIcon from "@material-ui/icons/BarChart"
 import useAlert from "../../../../Hooks/useAlert/useAlert";
 import {AppContext} from "../../../../Context/AppContext";
 import AxiosInstance from '../../../../Services/AxiosInstance/AxiosInstance'
+import Stats from "../Stats/Stats";
 
 const UrlDetails = (props) => {
     const data = props.data
@@ -57,7 +58,7 @@ const UrlDetails = (props) => {
             <div className={Style.UrlClickGraph}>
                 <h3>{data.clicked.length}<BarIcon /></h3>
                 <p>Total Clicks</p>
-                
+                {data.clicked.length > 0 && <Stats graphData={data.clicked}/>}
             </div>
         </div>
     )

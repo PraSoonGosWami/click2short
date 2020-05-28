@@ -18,7 +18,7 @@ const AppFooter = (props) => {
                     <img src={me} alt={"Prasoon Goswami"}/>
                     <h3>
                         <Tooltip title={"Visit Prasoon's wesite"}>
-                            <a href="https:prasoon.me"
+                            <a href="https://prasoon.me"
                                target="_blank"
                                aria-labelledby="Visit Prasoon's website"
                                rel="noopener noreferrer">Prasoon Goswami &#x2750;

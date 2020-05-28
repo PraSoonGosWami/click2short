@@ -13,6 +13,7 @@ const AuthUser = (props) => {
     const contextValue = useContext(AppContext)
     const {addAlert} = useAlert()
     const history = useHistory()
+    
 
     const [openModal, setOpenModal] = useState(false)
 
@@ -26,7 +27,8 @@ const AuthUser = (props) => {
             if (contextValue.user) {
                 document.title = "Click2Short | " + contextValue.user.name
             }
-            history.replace('/dashboard/')
+
+            history.replace('/dashboard')
 
         } else {
             logoutHandler()

@@ -2,10 +2,24 @@
     padding: 12px 8px;
     text-align: center;
 }
+.Profile > header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+.Profile > header > h4{
+    font-weight: normal;
+    word-spacing: 1px;
+    font-size: 0.9em;
+}
+.Profile > header > h4:first-of-type{
+    margin-right: 22px;
+}
 
 .Profile > main{
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 6px;
     padding: 22px;
     border-radius: 4px;
     max-width: 500px;
@@ -25,6 +39,7 @@
 .Profile > main > button:last-of-type{
     margin-top: 28px;
     padding: 6px 12px;
+
 }
 
 @media (max-width: 600px) {

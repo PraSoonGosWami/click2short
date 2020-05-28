@@ -34,6 +34,7 @@ const Profile = (props) => {
         setFName(val)
         if (val.length === 0) {
             setFNameError("Please enter first name")
+            setUpdated(false)
             return
         }
         setFNameError('')
@@ -45,6 +46,7 @@ const Profile = (props) => {
         setLName(val)
         if (val.length === 0) {
             setLNameError("Please enter last name")
+            setUpdated(false)
             return
         }
         setLNameError('')
@@ -56,16 +58,24 @@ const Profile = (props) => {
         const regex = /^\d+$/
         if (val.length === 0) {
             setPhoneError("Please enter phone")
+            setUpdated(false)
             return
         }
         if (!regex.test(val) || val.length !== 10) {
             setPhoneError("Invalid phone entered!")
+            setUpdated(false)
             return
         }
         setPhoneError('')
     }
 
     const onUpdateHandler = () => {
+        if(fNameError.length !==0 || lNameError.length !==0 || phoneError.length !==0){
+            addAlert('Invalid input passed!','error')
+            setUpdated(false)
+            return
+
+        }
         if(updated){
             setLoading(true)
             const url = '/user/update'
@@ -90,6 +100,10 @@ const Profile = (props) => {
     return(
         <div className={Style.Profile}>
             <Heading>Profile Settings</Heading>
+            <header>
+                <h4>Custom Url: {user.customURLS.length}</h4>
+                <h4>Auto Url: {user.autoURLS.length}</h4>
+            </header>
             <main>
                 <TextField label="First name" variant="outlined" size={"medium"} required value={fName} helperText={fNameError} error={fNameError.length > 0} type="name" onChange={(event => fNameTextHandler(event))} fullWidth/>
                 <TextField label="Last name" variant="outlined" size={"medium"} required value={lName} helperText={lNameError} error={lNameError.length > 0} fullWidth onChange={event => lNameTextHandler(event)} type="name"
@@ -104,7 +118,7 @@ const Profile = (props) => {
                     {loading ? <CircularProgress size={25} color={"secondary"}/> : "Update"}
                 </Button>}
                 <h3>Current plan: {user.plan}</h3>
-                <Button  variant="contained" color="primary" size="small">Change password</Button>
+                <Button  variant="contained" color="primary" size="small" onClick={()=>{addAlert('This feature will be available soon!','info')}}>Change password</Button>
 
             </main>
         </div>
