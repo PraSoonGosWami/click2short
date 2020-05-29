@@ -23,7 +23,6 @@ const Stats = (props) => {
                 device[item.type] = 1
             }
         })
-        console.log(device)
         setClicksData(clicks)
         setDeviceData(device)
     },[graphData])

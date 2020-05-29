@@ -20,10 +20,10 @@ const ClicksStats = (props) => {
                     label: 'Clicks',
                     backgroundColor: 'rgba(33, 150, 243, 0.6)',
                     borderColor: 'rgba(25, 118, 210, 1)',
-                    borderWidth: 1,
-                    hoverBackgroundColor: 'rgba(33, 150, 243, 0.8)',
+                    borderWidth: 2,
+                    hoverBackgroundColor: 'rgba(33, 150, 243, 1)',
                     hoverBorderColor: 'rgba(25, 118, 210, 1)',
-                    data: values
+                    data: values,
                 }
             ]
         }
@@ -37,6 +37,15 @@ const ClicksStats = (props) => {
             {data &&
             <Bar
                 data={data}
+                options={{
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    }
+                }}
 
             />
             }

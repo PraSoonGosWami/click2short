@@ -5,7 +5,6 @@ const DeviceStats = (props) => {
     const [data, setData] = useState(null)
     useEffect(()=>{
         const deviceData = props.deviceData
-        console.log(deviceData)
         const labels = []
         const values = []
         Object.keys(deviceData).map(key => {

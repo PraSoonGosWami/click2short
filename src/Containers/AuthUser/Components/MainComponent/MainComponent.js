@@ -2,6 +2,7 @@ import React,{Suspense} from 'react'
 import Spinner from "../../../../UI/Spinner/Spinner";
 import {Route, Switch} from "react-router";
 import Dashboard from "../../Pages/Dashboard/Dashboard";
+
 const TermsPolicies = React.lazy(()=>import('../../../../UI/TermsPolicies/TermsPolicies'))
 const Profile = React.lazy(()=> import('../../Pages/Profile/Profile'))
 
