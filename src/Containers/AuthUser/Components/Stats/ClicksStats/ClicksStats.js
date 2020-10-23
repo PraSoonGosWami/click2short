@@ -43,6 +43,9 @@ const ClicksStats = (props) => {
                             ticks: {
                                 beginAtZero: true
                             }
+                        }],
+                        xAxes: [{
+                            barPercentage: 0.2
                         }]
                     }
                 }}

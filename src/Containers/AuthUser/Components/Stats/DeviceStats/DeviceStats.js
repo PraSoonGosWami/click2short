@@ -38,8 +38,8 @@ const DeviceStats = (props) => {
         setData(graphSet)
     },[])
     return(
-        <div style={{marginTop:"80px"}}>
-            <h4>Clicks from devices</h4>
+        <div style={{marginTop:"80px",padding:"0 20px"}}>
+            <h4 style={{textAlign:"center",marginTop:"16px",marginBottom:"22px"}}>Clicks from devices</h4>
             {data && <Doughnut data={data}/>}
         </div>
     )

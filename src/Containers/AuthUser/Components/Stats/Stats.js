@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react'
 import {getDate} from "../../../../Services/FormatDate/FormatDate";
 import ClicksStats from "./ClicksStats/ClicksStats";
 import DeviceStats from "./DeviceStats/DeviceStats";
+import {Container} from "@material-ui/core";
 
 const Stats = (props) => {
     const graphData = props.graphData
@@ -27,10 +28,10 @@ const Stats = (props) => {
         setDeviceData(device)
     },[graphData])
     return(
-        <div>
+        <Container maxWidth={"md"} style={{padding:"0 12px"}}>
             {clicksData && <ClicksStats clicksData={clicksData}/>}
             {deviceData && <DeviceStats deviceData={deviceData}/>}
-        </div>
+        </Container>
     )
 }
 
